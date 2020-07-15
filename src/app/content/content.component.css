@@ -1,0 +1,8 @@
+#roll_button
+{
+    position:relative; 
+    top:30px;
+    left:-180px;
+    width:180px;
+    font-weight:bold;
+}
