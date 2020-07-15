@@ -1,6 +1,9 @@
 
 import { Die } from "./Die";
 class Game {
+    static rollDice() {
+      throw new Error("Method not implemented.");
+    }
     dice: any[];
     constructor(numberOfDice = 1) {
         console.log("constructor() is called");

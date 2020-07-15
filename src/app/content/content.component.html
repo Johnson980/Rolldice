@@ -1,7 +1,6 @@
 <section>
-<div class="dice">
-<img src="assets\Images\side_1.png" width="180" height="180"/>
-<Button id="roll_button" (click)="roll_button()" class="">Roll dice</Button>
-<h2>{{msg}}</h2>
-</div>
-</section>
+  <div>
+  <img id="dice" [src]="dice" width="180" height="180"/>
+  <Button id="roll_button" (click)="roll_button" class="roll">Roll dice</Button>
+  </div>
+  </section>
