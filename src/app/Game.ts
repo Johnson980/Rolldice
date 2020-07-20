@@ -1,6 +1,7 @@
 
 import { Die } from "./Die";
 class Game {
+    static dice: any;
     static rollDice() {
       throw new Error("Method not implemented.");
     }

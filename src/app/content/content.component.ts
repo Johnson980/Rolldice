@@ -13,10 +13,13 @@ import * as $ from 'jquery';
 export class ContentComponent implements OnInit {
 
   constructor() { }
+  dice="images/dice/side_1.png"
+ 
+  roll_button(){}
+
   @Input () contentInfo: Game;
+  
   ngOnInit(): void {
-  
-  
 
     const maxNumberOfDice = 1; 
     let game = new Game(); 
@@ -39,6 +42,7 @@ export class ContentComponent implements OnInit {
     
     
     $(document).ready(function(){
+        
         $select = $("select");
         $dice = $("#dice");
         $total = $("#total");
@@ -47,17 +51,24 @@ export class ContentComponent implements OnInit {
         updateTotal();
         handleSelectionChanges();
         handleRollButtonClicks();
+      
     });
+
     
     function dieImageSrc(side) {
-        return `images/dice/side_${side}.png`;
+        
+        return `src/images/dice/side_${side}.png`;
+    
     }
     
+    
+
     function insertImages() {
         for (let die of game.dice) {
             let side = die.side;
             let src = dieImageSrc(side);
             $dice.append(`<img src="${src}" alt="side ${side}">`);
+            
         }
     }
     
@@ -66,6 +77,7 @@ export class ContentComponent implements OnInit {
             $select.append(`<option value="${i}" ${(i === numberOfDice)?'selected':''}>${i}</option>`);
         }
     }
+
     
     function handleSelectionChanges() {
         $select.change(function () {
@@ -83,12 +95,14 @@ export class ContentComponent implements OnInit {
         });
     }
     
+    
     function updateTotal() {
         $total.text(game.total);
     }
 
-    function saveSides(){
-
+    function saveSides() {  
+        console.log("Searching for image");
+       
     }
     
     function handleRollButtonClicks() {
@@ -96,8 +110,8 @@ export class ContentComponent implements OnInit {
             console.log("the click event handler is called");
             game.rollDice();
             $dice.find("img").each(function(index){
-                let side = game.dice[index].side;
-                let src = dieImageSrc(side);
+                 let side = game.dice[index].side;
+                 let src = dieImageSrc(side);
                 $(this).attr("src", src).attr("alt", `side ${side}`);
             });
             updateTotal();
@@ -108,5 +122,6 @@ export class ContentComponent implements OnInit {
   }
  
 }
+
 
 
